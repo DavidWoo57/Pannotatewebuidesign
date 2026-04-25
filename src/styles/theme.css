@@ -1,0 +1,209 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 16px;
+
+  /* Light Mode Colors - Clean, Elegant, Premium */
+  --background: #ffffff;
+  --foreground: #09090b;
+  --card: #fafafa;
+  --card-foreground: #09090b;
+  --popover: #ffffff;
+  --popover-foreground: #09090b;
+  --primary: #09090b;
+  --primary-foreground: #fafafa;
+  --secondary: #f4f4f5;
+  --secondary-foreground: #09090b;
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;
+  --accent: #e4e4e7;
+  --accent-foreground: #09090b;
+  --destructive: #dc2626;
+  --destructive-foreground: #fafafa;
+  --border: #e4e4e7;
+  --input: #e4e4e7;
+  --input-background: #fafafa;
+  --switch-background: #e4e4e7;
+  --ring: #a1a1aa;
+
+  /* Brand Colors */
+  --brand-violet: #8b5cf6;
+  --brand-fuchsia: #d946ef;
+  --brand-pink: #ec4899;
+
+  /* Status Colors */
+  --success: #16a34a;
+  --success-foreground: #ffffff;
+  --warning: #ea580c;
+  --warning-foreground: #ffffff;
+  --processing: #ea580c;
+  --processing-foreground: #ffffff;
+
+  /* Canvas & Editor */
+  --canvas-background: #fafafa;
+  --canvas-border: #d4d4d8;
+  --annotation-color: #8b5cf6;
+  --tool-active: #8b5cf6;
+  --tool-active-bg: rgba(139, 92, 246, 0.08);
+
+  /* Surface Colors */
+  --surface-elevated: #fafafa;
+  --surface-overlay: rgba(255, 255, 255, 0.95);
+
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --radius: 0.625rem;
+}
+
+.dark {
+  /* Dark Mode Colors - Modern, Focused, Premium, Creative */
+  --background: #0a0a0a;
+  --foreground: #fafafa;
+  --card: #18181b;
+  --card-foreground: #fafafa;
+  --popover: #18181b;
+  --popover-foreground: #fafafa;
+  --primary: #fafafa;
+  --primary-foreground: #0a0a0a;
+  --secondary: #27272a;
+  --secondary-foreground: #fafafa;
+  --muted: #27272a;
+  --muted-foreground: #a1a1aa;
+  --accent: #3f3f46;
+  --accent-foreground: #fafafa;
+  --destructive: #dc2626;
+  --destructive-foreground: #fafafa;
+  --border: #27272a;
+  --input: #27272a;
+  --input-background: #18181b;
+  --ring: #52525b;
+
+  /* Brand Colors (same in both themes) */
+  --brand-violet: #8b5cf6;
+  --brand-fuchsia: #d946ef;
+  --brand-pink: #ec4899;
+
+  /* Status Colors */
+  --success: #22c55e;
+  --success-foreground: #ffffff;
+  --warning: #f59e0b;
+  --warning-foreground: #0a0a0a;
+  --processing: #f59e0b;
+  --processing-foreground: #0a0a0a;
+
+  /* Canvas & Editor */
+  --canvas-background: #18181b;
+  --canvas-border: #3f3f46;
+  --annotation-color: #a78bfa;
+  --tool-active: #8b5cf6;
+  --tool-active-bg: rgba(139, 92, 246, 0.15);
+
+  /* Surface Colors */
+  --surface-elevated: #27272a;
+  --surface-overlay: rgba(24, 24, 27, 0.98);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-brand-violet: var(--brand-violet);
+  --color-brand-fuchsia: var(--brand-fuchsia);
+  --color-brand-pink: var(--brand-pink);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-processing: var(--processing);
+  --color-processing-foreground: var(--processing-foreground);
+  --color-canvas-background: var(--canvas-background);
+  --color-canvas-border: var(--canvas-border);
+  --color-annotation-color: var(--annotation-color);
+  --color-tool-active: var(--tool-active);
+  --color-tool-active-bg: var(--tool-active-bg);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-surface-overlay: var(--surface-overlay);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /**
+  * Default typography styles for HTML elements (h1-h4, p, label, button, input).
+  * These are in @layer base, so Tailwind utility classes (like text-sm, text-lg) automatically override them.
+  */
+
+  html {
+    font-size: var(--font-size);
+  }
+
+  h1 {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h2 {
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h3 {
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h4 {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  label {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  button {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  input {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.5;
+  }
+}
